@@ -7,8 +7,7 @@ Features:
 - Current room timer in the bottom left, previous room timer just to the right (room are defined as separated by a black screen transition).
 
 Known issues:
-- Graphical glitches:
-- Static numbers below the timers (interestinly, bizhawk cuts out the portion of the screen that would show these, but they appear on a real console);
-- A small flickering bar above the HUD;
-- Sometimes items in your inventory get the wrong color palette;
-- Sometimes the whole screen flickers.
+- Final room time of the run is not able to be viewed anywhere.
+
+To-do list:
+- Maybe implement a full level timer?
