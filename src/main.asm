@@ -3,6 +3,6 @@ header
 
 banksize $4000
 
-incsrc "defines.asm"
-incsrc "hijack.asm"
-incsrc "timer.asm"
+incsrc "src/defines.asm"
+incsrc "src/hijack.asm"
+incsrc "src/timer.asm"
