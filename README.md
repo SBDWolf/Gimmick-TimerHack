@@ -10,4 +10,5 @@ Known issues:
 - Graphical glitches:
 - Static numbers below the timers (interestinly, bizhawk cuts out the portion of the screen that would show these, but they appear on a real console);
 - A small flickering bar above the HUD;
-- Sometimes items in your inventory get the wrong color palette.
+- Sometimes items in your inventory get the wrong color palette;
+- Sometimes the whole screen flickers.
