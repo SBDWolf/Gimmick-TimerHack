@@ -2,12 +2,8 @@ bank 3
 
 org $C920
 
-// LDY $4A
-// LDA #$0D
-// STA $8000
-// LDA #$00
-// STA $A000
-// LDA #$0E
+// Execute part of the hijacked instructions here
+// For some reason, it's important to do these here instead of at the end to prevent some graphics from glitching out.
 
 LDA #$0D
 STA $8000
@@ -15,7 +11,7 @@ LDA #$81
 STA $A000
 
 
-
+// Various checks
 LDA {game_state}
 CMP #$08
 BEQ check_transition
@@ -78,11 +74,14 @@ CMP #100
 BNE draw_timer
 STA {timer_cap_flag}
 
-
-// This method of drawing is just how you draw stuff on video on the NES. Consult the PPU Registers page on nesdev for more information.
 draw_timer:
+// This method of drawing is just how you draw stuff on video on the NES.
+// Consult this for more information: https://www.nesdev.org/wiki/PPU_registers
+// I'm not sure what this draw to PPU_CTRL does exactly, but I've seen similar stuff to it in other NES hacks.
+// I think this write to PPU_CTRL seems to help prevent other graphics from glitching out.
+// I think this page from nesdev has some related information: https://www.nesdev.org/wiki/Errata
 LDA #$F8
-STA $2000
+STA {PPU_CTRL}
 LDA #$23
 STA {PPU_ADDR}
 LDA #$85
@@ -104,7 +103,8 @@ LDA {ones_digits}, x
 STA {PPU_DATA}
 
 
-
+// This flag makes it so that the previous room time only gets drawn once at the start of every room.
+// This reduces execution time and should help prevent screen flickering (?)
 LDA {already_drawn_prevroom_time}
 CMP #$01
 BNE draw_prevroom_time
@@ -137,19 +137,13 @@ JMP {done_offset}
 
 
 
-// Execute Hijacked instructions, then return to hijacked loop
+// Execute final instructions out of the ones that have been hijacked, then return to hijacked loop
 org {done_offset}
 .done:
 LDA $EAE4, y
 RTS
 
-// LDA #$00
-// STA $6F
-// STA $2003
-// LDA #$02
-// STA $4014
-// LDY #$AC
-// RTS
+
 
 
 

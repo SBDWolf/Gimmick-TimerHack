@@ -1,4 +1,5 @@
 // NES PPU registers
+define PPU_CTRL $2000
 define PPU_ADDR $2006
 define PPU_DATA $2007
 
@@ -22,7 +23,7 @@ define already_transferred_room_time $775
 define already_drawn_prevroom_time $776
 
 
-// defining some ROM addresses of MY OWN CODE here and using them as variables, because labels seem oddly broken when using the jmp instruction...
+// defining some ROM addresses of MY OWN CODE here and using them as variables, because labels seem broken when using the jmp instruction...
 define tens_digits $8B08
 define ones_digits $8B6D
 define done_offset $8AC0
