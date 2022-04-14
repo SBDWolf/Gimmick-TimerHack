@@ -8,6 +8,8 @@ define game_state $E2
 // This RAM address is non-zero during screen transition
 define in_transition $29
 
+define pause_flag $601
+
 
 // Timer variables
 define curr_timer_s $770
@@ -17,10 +19,11 @@ define prev_timer_f $773
 
 define timer_cap_flag $774
 define already_transferred_room_time $775
+define already_drawn_prevroom_time $776
 
 
 // defining some ROM addresses of MY OWN CODE here and using them as variables, because labels seem oddly broken when using the jmp instruction...
-define tens_digits $89F5
-define ones_digits $8A5A
-define done_offset $89E6
+define tens_digits $8B08
+define ones_digits $8B6D
+define done_offset $8AC0
 
