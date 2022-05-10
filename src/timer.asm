@@ -22,13 +22,6 @@ LDA {in_transition}
 CMP #$00
 BNE transfer_room_time
 
-
-// check_end_of_game:
-// LDA {end_of_game_flag}
-// CMP #$00
-// BNE transfer_room_time
-
-
 check_pause_flag:
 LDA {pause_flag}
 CMP #$FF
@@ -93,9 +86,6 @@ STA {timer_cap_flag}
 LDA #$01
 STA {already_transferred_room_time}
 
-// LDA {end_of_game_flag}
-// CMP #$00
-// BNE draw_timer
 
 go_to_done:
 JMP {done_offset}

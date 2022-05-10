@@ -11,7 +11,6 @@ define in_transition $29
 
 define pause_flag $601
 define curr_level $1B
-define end_of_game_flag $EB
 
 
 // Timer variables
