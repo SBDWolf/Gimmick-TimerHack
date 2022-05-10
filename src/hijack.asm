@@ -12,6 +12,12 @@ LDA #$06
 STA $A000
 JSR $8920
 
+// experiment to try and skip credits
+org $E0F4
+LDA #$00
+STA $1B
+BVC $E0FC
+
 
 
 
