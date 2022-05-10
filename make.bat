@@ -1,4 +1,4 @@
 del /q output
 xcopy target output
-xkas -o output/AD.nes src/main.asm
+xkas -o output/gmk.nes src/main.asm
 pause
