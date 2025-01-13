@@ -12,12 +12,15 @@ LDA #$06
 STA $A000
 JSR $8920
 
-// experiment to try and skip credits
+// skip best ending credits
 org $E0F4
 LDA #$00
 STA $1B
 BVC $E0FC
 
+// skip bad ending credits
+org $E122
+BVC $E12D
 
 
 
